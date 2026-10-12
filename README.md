@@ -37,7 +37,7 @@ The library modules do not create geometry unless invoked. See `examples/key_sam
 
 The printed transition is intended between real aluminum extrusion sections. Its outer envelope stays nominally full size; it does not by itself force misaligned aluminum sections into alignment. Print and test a short specimen before relying on a key crossing the junction. The internal shape of the commercial aluminum extrusion is deliberately not reproduced.
 
-All length parameters are required and explicitly checked; no implicit 100 mm defaults.
+All length parameters are required and explicitly checked; no defaults.
 
 ## Repository maintenance
 
