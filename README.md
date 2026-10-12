@@ -21,9 +21,11 @@ Own and maintain the design; manufacture parts on demand instead of maintaining 
 ## Quick start
 
 ```openscad
-include <std.scad>;
+include <index.scad>;
 key2040(cutLen=25.4);
 ```
+
+Use `include <index.scad>;` as the main library entry point. `std.scad` remains a compatibility alias.
 
 The library modules do not create geometry unless invoked. See `examples/key_sample.scad` for a standalone example.
 
