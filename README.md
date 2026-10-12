@@ -31,6 +31,18 @@ The library modules do not create geometry unless invoked. See `examples/key_sam
 
 `key2040()` implements the latest photographed/slicer-inspected **experimental** profile, with the raised shoulder and seven blind holes. It has not yet been established as a universal fit. Preserve earlier implementations through Git history; when a tested geometry changes, create a new numbered version instead of silently changing a published, validated geometry.
 
+## Six-slot printed transition
+
+`transition_2040_001(cut_len=5);` generates a full 20 × 40 mm outline with six continuous slots: two along each 40 mm side and one along each 20 mm end. The six slot openings have matching axial bevels **at both ends** of the printed piece. Version 001 uses a fixed 0.8 mm lead-in and 0.4 mm enlargement at each axial end. These are experimental design coordinates, not printer calibration.
+
+The printed transition is intended between real aluminum extrusion sections. Its outer envelope stays nominally full size; it does not by itself force misaligned aluminum sections into alignment. Print and test a short specimen before relying on a key crossing the junction. The internal shape of the commercial aluminum extrusion is deliberately not reproduced.
+
+All length parameters are required and explicitly checked; no implicit 100 mm defaults.
+
+## Repository maintenance
+
+This repository is single-maintainer. External pull requests and contributions are not accepted; independent forks are welcome under the LICENSE terms. The checked-in geometry intentionally omits printer-specific calibration recipes.
+
 ## Manufacturing notes
 
 The 1.8 mm pilot holes are intentionally small relative to the approximately 3.4 mm screws used in initial experiments; **do not assume they will accept those screws without cracking or stripping**. Verify on a short specimen and adjust in a separate, locally calibrated model. A 15 mm screw with a 3 mm mounting stack nominally enters the key 12 mm, leaving 0.8 mm before the modeled bottom; actual countersink seating and screw-tip geometry must be checked.
