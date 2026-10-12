@@ -1,23 +1,20 @@
-// EU2040 single-slot sliding key.
-// Units: mm. Experimental geometry from an iterative physical fit test.
-// Print process calibration and strength qualification are NOT included.
-// BSD 2-Clause License; see ../LICENSE.
+// EU2040 single-slot sliding keys. Millimeters.
+// Reference geometry and historic experimental geometry are distinct.
+// License: see ../LICENSE.
 
-// Experimental geometry snapshot with a raised 0.6 mm retaining shoulder.
-// Seven blind transverse pilot holes, evenly spaced along cutLen.
-// X points into the extrusion; Z is the length of the key.
-// A subsequent validated change should be introduced under a new identifier.
-module key_2040_003(cut_len) {
+// Geometry engine. Feature deltas are zero for the published CAD reference.
+// Private process wrappers may supply their own measured feature adjustments.
+module _key_2040_geometry(cut_len, wedge_adjust, shoulder_raise) {
+    assert(!is_undef(cut_len) && is_num(cut_len) && cut_len > 0,
+        "_key_2040_geometry: cut_len must be positive");
+    assert(is_num(wedge_adjust) && is_num(shoulder_raise),
+        "_key_2040_geometry: feature adjustments must be numbers");
+
     extension = 4.8;
     hole_diameter = 1.8;
     hole_depth = 12.0;
     hole_count = 7;
-    wedge_adjust = 0.5;
-    shoulder_raise = 0.6;
     shoulder_x = 4.3 - shoulder_raise;
-
-    assert(!is_undef(cut_len) && is_num(cut_len) && cut_len > 0,
-        "key_2040_003: cut_len must be a positive number");
 
     difference() {
         linear_extrude(height=cut_len)
@@ -35,18 +32,26 @@ module key_2040_003(cut_len) {
             ]);
 
         for (i = [1:hole_count]) {
-            translate([
-                -extension,
-                0,
-                cut_len * i / (hole_count+1)
-            ])
+            translate([-extension, 0, cut_len*i/(hole_count+1)])
                 rotate([0,90,0])
                     cylinder(h=hole_depth, d=hole_diameter, $fn=32);
         }
     }
 }
 
-// Compatibility entry point for the original prototype's call signature.
+// Nominal published-CAD shape. Functional extension and hole layout are
+// intentionally retained; no printer-specific fit corrections are applied.
+module key_2040_001(cut_len) {
+    _key_2040_geometry(cut_len=cut_len, wedge_adjust=0, shoulder_raise=0);
+}
+
+// Historical experimental geometry preserved for reproducibility.
+// Wedge enlargement 0.5 mm each side; shoulder X raised by 0.6 mm.
+module key_2040_003(cut_len) {
+    _key_2040_geometry(cut_len=cut_len, wedge_adjust=0.5, shoulder_raise=0.6);
+}
+
+// Historical prototype call signature, retained for compatibility.
 module key2040(cutLen) {
     key_2040_003(cut_len=cutLen);
 }
