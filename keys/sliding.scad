@@ -7,7 +7,7 @@
 // Seven blind transverse pilot holes, evenly spaced along cutLen.
 // X points into the extrusion; Z is the length of the key.
 // A subsequent validated change should be introduced under a new identifier.
-module key_2040_003(cut_len=100) {
+module key_2040_003(cut_len) {
     extension = 4.8;
     hole_diameter = 1.8;
     hole_depth = 12.0;
@@ -16,7 +16,8 @@ module key_2040_003(cut_len=100) {
     shoulder_raise = 0.6;
     shoulder_x = 4.3 - shoulder_raise;
 
-    assert(cut_len > 0, "cut_len must be positive");
+    assert(!is_undef(cut_len) && is_num(cut_len) && cut_len > 0,
+        "key_2040_003: cut_len must be a positive number");
 
     difference() {
         linear_extrude(height=cut_len)
@@ -46,6 +47,6 @@ module key_2040_003(cut_len=100) {
 }
 
 // Compatibility entry point for the original prototype's call signature.
-module key2040(cutLen=100) {
+module key2040(cutLen) {
     key_2040_003(cut_len=cutLen);
 }
