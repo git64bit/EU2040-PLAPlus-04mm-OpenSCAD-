@@ -21,9 +21,11 @@ Own and maintain the design; manufacture parts on demand instead of maintaining 
 ## Quick start
 
 ```openscad
-include <std.scad>;
+include <EU2040.scad>;
 key2040(cutLen=25.4);
 ```
+
+The library entry point is `EU2040.scad` (not `std.scad`). Browse the [module documentation and examples](docs/wiki/Home.md). The documentation pages are stored in the repository until GitHub Wiki publishing is available.
 
 The library modules do not create geometry unless invoked. See `examples/key_sample.scad` for a standalone example.
 
