@@ -1,0 +1,12 @@
+# Local manufacturing calibration and non-public measurements.
+# These directories may be copied into the working tree but must never be committed.
+/private-calibration/
+/local-calibration/
+
+# Common local OpenSCAD exports and autosaves.
+*.stl
+*.3mf
+*.gcode
+*.gco
+*.bak
+*.scad~
