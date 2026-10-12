@@ -22,7 +22,7 @@ Own and maintain the design; manufacture parts on demand instead of maintaining 
 
 ```openscad
 include <EU2040.scad>;
-key2040(cutLen=25.4);
+key_2040_001(cut_len=25.4);
 ```
 
 The library entry point is `EU2040.scad` (not `std.scad`). Browse the [module documentation and examples](docs/wiki/Home.md). The documentation pages are stored in the repository until GitHub Wiki publishing is available.
@@ -31,11 +31,11 @@ The library modules do not create geometry unless invoked. See `examples/key_sam
 
 ## Geometry status
 
-`key2040()` implements the latest photographed/slicer-inspected **experimental** profile, with the raised shoulder and seven blind holes. It has not yet been established as a universal fit. Preserve earlier implementations through Git history; when a tested geometry changes, create a new numbered version instead of silently changing a published, validated geometry.
+`key_2040_001(cut_len)` is the public nominal CAD-based key; it applies no empirical fit adjustments. `key_2040_003(cut_len)` and its compatibility alias `key2040(cutLen)` preserve the photographed experimental version (+0.5 mm wedge per side and 0.6 mm raised shoulder). The nominal model still contains functional extension and blind-hole features. Keep printer-specific manufacturing wrappers in ignored `private-calibration/`, never in the public library. See [calibration workflow](docs/calibration.md).
 
 ## Six-slot printed transition
 
-`transition_2040_001(cut_len=5);` generates a full 20 × 40 mm outline with six continuous slots: two along each 40 mm side and one along each 20 mm end. The six slot openings have matching axial bevels **at both ends** of the printed piece. Version 001 uses a fixed 0.8 mm lead-in and 0.4 mm enlargement at each axial end. These are experimental design coordinates, not printer calibration.
+`transition_2040_001(cut_len=5);` generates a full 20 × 40 mm outline with six continuous slots: two along each 40 mm side and one along each 20 mm end. The six slot openings have matching axial bevels **at both ends** of the printed piece. Version 001 currently uses the experimental key-derived slot geometry, **not** an independently verified published nominal slot. Its physical fit remains to be tested. It uses a fixed 0.8 mm lead-in and 0.4 mm enlargement at each axial end. These are experimental design coordinates, not printer calibration.
 
 The printed transition is intended between real aluminum extrusion sections. Its outer envelope stays nominally full size; it does not by itself force misaligned aluminum sections into alignment. Print and test a short specimen before relying on a key crossing the junction. The internal shape of the commercial aluminum extrusion is deliberately not reproduced.
 
