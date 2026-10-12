@@ -1,19 +1,19 @@
-# Sliding Key — `key_2040_003()`
+# Sliding Key — `key_2040_001()`
 
-**Status:** Experimental; physically iterated prototype. Not load-qualified.
+**Status:** Experimental; published nominal CAD-based design. Not load-qualified.
 
 ## Invocation
 
 ```openscad
 include <EU2040.scad>;
-key_2040_003(cut_len=100);
+key_2040_001(cut_len=100);
 ```
 
 To test a short piece:
 
 ```openscad
 include <EU2040.scad>;
-key_2040_003(cut_len=25.4);
+key_2040_001(cut_len=25.4);
 ```
 
 ## Parameters
@@ -24,11 +24,13 @@ key_2040_003(cut_len=25.4);
 
 ## Geometry
 
-- Cross-section based on the tested 2040 slot fit, including the raised retaining collar.
+- Uncalibrated reference cross-section using CAD-derived dimensions; no empirical wedge or collar correction.
 - Seven evenly distributed transverse **blind** pilot holes, diameter 1.8 mm, depth 12.0 mm.
 - Nominal 0.8 mm remaining wall at the modeled deep end of each hole.
 - The key includes a 4.8 mm exposed extension beyond the slot.
 - Hole centers are at `cut_len*i/8`, for `i=1..7`.
+
+The historical experimental geometry is available separately as `key_2040_003(cut_len)`, with the empirically enlarged wedge and raised retaining shoulder. Manufacturing-specific adjustments belong in private calibration wrappers, not in the public nominal invocation.
 
 The hole diameter is not a validated threaded fit for every screw or print. Inspect screw engagement, cracking, and penetration before assembling instruments.
 
