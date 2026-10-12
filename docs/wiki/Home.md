@@ -10,7 +10,7 @@ Put the repository where OpenSCAD can resolve its library path, then:
 
 ```openscad
 include <EU2040.scad>;
-key_2040_003(cut_len=25.4);
+key_2040_001(cut_len=25.4);
 ```
 
 Use **F5** to preview or **F6** to render the selected module. Importing the library by itself creates no geometry. Required lengths have no default.
@@ -19,12 +19,12 @@ Use **F5** to preview or **F6** to render the selected module. Importing the lib
 
 | Module | Purpose | Details |
 |---|---|---|
-| [`key_2040_003(cut_len)`](Sliding-Key.md) | Single-slot sliding PLA+ anchor; seven blind holes | [Source](../../keys/sliding.scad) |
+| [`key_2040_001(cut_len)`](Sliding-Key.md) | Nominal CAD-based sliding key; seven blind holes | [Source](../../keys/sliding.scad) |
 | [`transition_2040_001(cut_len)`](Six-Slot-Transition.md) | Full-outline 20 × 40 mm short junction, six slots with lead-ins on both axial faces | [Source](../../profiles/transition_2040.scad) |
 
 ## Validation
 
-These modules are **experimental**. Visual renders are not evidence of mechanical fit. Test short prints against the actual metal extrusion, with the chosen material and equipment. No external manufacturer calibration or load rating is implied.
+These modules are **experimental**. The sliding key page documents the uncalibrated nominal model; the historical key_2040_003 has separately recorded fitted geometry. Visual renders are not evidence of mechanical fit. Test short prints against the actual metal extrusion, with the chosen material and equipment. No external manufacturer calibration or load rating is implied.
 
 ## Repository policy
 
