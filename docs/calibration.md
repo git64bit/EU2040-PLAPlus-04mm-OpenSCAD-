@@ -21,4 +21,8 @@ The private calibration archive contains the observed +0.5 mm lower-wedge adjust
 
 The public `key_2040_003` remains as a historical record of that experimental shape and is **not** the nominal model. `transition_2040_001` currently uses the experimental profile for its six slots and has not been independently fit-validated.
 
+## Local sliding-fit procedure
+
+The fitting sequence and supplier/printer observations belong in the ignored `private-calibration/` directory, not this public repository or the Wiki. Begin with a minimal procedure and expand it only when test results require more detail. Keep each successfully tested manufacturing wrapper and its settings unchanged.
+
 No automatic printer detection or universal shrinkage value is used. Private scripts and data must never be published. The internal geometry helper's named arguments are an implementation interface; pin your library commit when freezing a manufacturing wrapper.
