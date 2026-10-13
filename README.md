@@ -25,7 +25,7 @@ include <EU2040.scad>;
 key_2040_001(cut_len=25.4);
 ```
 
-The library entry point is `EU2040.scad` (not `std.scad`). Browse the [module documentation](https://github.com/git64bit/EU2040-PLAPlus-04mm-OpenSCAD-/wiki). The GitHub Wiki is maintained as a separate Git repository.
+The library entry point is `EU2040.scad` (not `std.scad`). Browse the [module documentation](https://github.com/git64bit/EU2040-PLAPlus-04mm-OpenSCAD-/wiki). The GitHub Wiki is maintained as a separate Git repository. See the [Wiki media convention](docs/wiki-media.md) for standardized views and Revision 1 illustration policy.
 
 The library modules do not create geometry unless invoked. See `examples/key_sample.scad` for a standalone example.
 
